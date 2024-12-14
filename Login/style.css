@@ -1,0 +1,181 @@
+/* Updated CSS for Circular Login/Sign Up Page */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #FF5722;
+    --background-gradient: linear-gradient(120deg, #4CAF50, #FF5722);
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.3);
+    --input-focus: #ffffff;
+    --text-color: #fff;
+    --button-hover: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--background-gradient);
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    /* background: rgba(0, 0, 0, 0.8); */
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.form-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.form-box {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.form-box.active {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.form-box h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 80%;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: var(--text-color);
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--input-focus);
+}
+
+.input-group label {
+    display: none;
+}
+
+.btn {
+    display: inline-block;
+    width: 60%;
+    padding: 10px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+}
+
+p {
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.toggle-login,
+.toggle-register {
+    cursor: pointer;
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-box.active {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.container .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* background: radial-gradient(circle, rgba(0,0,0,0.6), transparent); */
+}
+
+.background .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: url('https://www.transparenttextures.com/patterns/cubes.png'); */
+    opacity: 0.2;
+}
